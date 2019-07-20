@@ -3,11 +3,12 @@
 
 int discriminante (int a , int b , int c);
 float xdelvertice (float a , float b);
+float incognita (float inc ,float a ,float b ,float c);
 
 
 int main(){
 
-int a , b , c , disc ,xr , xi;
+int a , b , c , disc ,xr , xi , inc;
 float  x1 , x2;
 
 printf ("\t\t\tEcuacion De Segundo Grado\n");
@@ -49,7 +50,13 @@ else{
 
     }
 }
-        printf ("El X Del Vertice es %f: \t", xdelvertice(a,b));
+        printf ("El X Del Vertice es %.2f: \n", xdelvertice(a,b));
+        printf ("El Resultado De La Funcion es:\n");
+        printf ("X => Y\n");
+        for (float i = xdelvertice(a,b)-5; i<=xdelvertice(a,b)+5; i++){
+            
+            printf("%.2f => %.2f\n", i , incognita(i,a,b,c));
+        }
 
 printf("\n\n\t\t\t");
 printf ("Presione Una Tecla Para Terminar");
@@ -64,4 +71,7 @@ int discriminante (int a , int b , int c){
 
 float xdelvertice (float a , float b){
     return (-b/(2*a));
+}
+float incognita (float inc ,float a ,float b ,float c){
+    return ((a*(pow(inc,2))+(b*inc)+c));
 }
